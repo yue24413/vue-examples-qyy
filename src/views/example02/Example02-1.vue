@@ -4,7 +4,7 @@
       <h1>非响应式</h1>
       普通数据也可渲染在视图。以下message数据为非响应式的静态数据，即数据改变时视图无响应。
       <br />
-      message: {{ message }}
+      message: {{ massage }}
       <br />
       当执行以下函数改变userRef值，此数据不会改变
       <br />
@@ -54,6 +54,13 @@
         <br />
         参数3，监听选项对象，对象中可声明deep: true属性，可监听对象中属性的改变
         <br />
+      </p>
+
+      <p>
+        <button @click="changeF2">改变响应式对象的引用，watch()可监听</button>
+      </p>
+
+      <p>
         <button @click="changeUserRef2">改变响应式对象中的属性中数据，watch()可监听</button>
       </p>
     </div>
@@ -66,11 +73,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type { User } from '@/type/index.ts'
+import type { User } from '@/type'
 import { computed, ref, watch, watchEffect } from 'vue'
 
-const message = 'hello'
-
+const massage = ' '
 const userAsync: User = {
   name: 'SUN',
   insertTime: '2046-04-11T20:24:59',
@@ -82,35 +88,48 @@ const user: User = {
 }
 const messageRef = ref('hello world')
 const userRef = ref(user)
-//
-console.log(messageRef)
-console.log(userRef)
-
-// 视图执行函数
+console.log(messageRef) //String
+console.log(userRef) //User
 const changeUserRef = () => {
   setTimeout(() => {
-    userRef.value = userAsync
+    userRef.value = userAsync /*userRef.value 代理对象 */
   }, 1000)
 }
-// computed()函数
+//Computed()
+/*函数的参数为必须有返回值的函数
+js中，函数的返回值可以是一个函数 */
 const userComputed = computed(() => userRef.value.insertTime?.replace('T', ' '))
 
-// 可监听userRef中对象引用的改变
-watch(userRef, () => alert(`watch被激活。用户对象改变`))
+/**监听响应式对象引用的改变 */
+watch(userRef, () => alert(`watch被激活活，监听响应对象的引用，用户对象改变`))
+/**监听响应式对象引用的改变 */
+const changeF2 = () => {
+  userRef.value = { name: 'chen' }
+}
 
 const changeUserRef2 = () => {
   setTimeout(() => {
-    userRef.value.name = 'ZHOU'
+    userRef.value.name = 'zhou'
   }, 1000)
 }
-// 可监听userRef中对象的改变，以及对象中属性数据的变化
-watch(
-  userRef,
-  (newUser) => alert(`watch被激活。用户对象中属性数据被改变，名被改为: ${newUser.name}`),
-  { deep: true }
-)
-// 首次进入时即执行回调
+
+//只有当第一个点哪个改变属性的button时，则绑定那个对象，才会激活
+watch(userRef.value, () => {
+  setTimeout(() => {
+    alert('watch被激活。监听代理对象，用户对象中属性被改变')
+  }, 500)
+})
+/**监听响应式对象userRef的引用 deep属性会监听到其内部*/
+watch(userRef, (newUser) => {
+  /**传入的新值newUser实际上是userRef.value的最新状态 */
+  alert(`watch被激活。有deep属性，用户对象中属性被改变，名称为：${newUser.name}`),
+    {
+      deep: true
+    }
+})
+
+//首次进入即回调 watch第一次不会立即回调 当改变才会回调
 watchEffect(() => {
-  console.log(`watchEffect: ${userRef.value.name}`)
+  alert(`watchEffect:${userRef.value.name}`)
 })
 </script>

@@ -16,10 +16,10 @@ body {
 }
 #app {
   /**横向弹性 */
+  background-color: #ffee99;
   display: flex;
   margin: 10px auto;
 }
-
 #sidebar {
   width: 300px;
   border: 1px solid red;

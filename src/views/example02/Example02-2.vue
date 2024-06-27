@@ -1,5 +1,6 @@
 <template>
-  <h2>02-2</h2>
+  <div>
+    <h1>Reactive-02</h1>
+  </div>
 </template>
 <script lang="ts" setup></script>
-<style></style>
