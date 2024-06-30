@@ -1,7 +1,8 @@
 export interface Course {
   id?: number
   name?: string
-  createTime?: string
+  point?: number
+  semester?: number
 }
 
 export interface User {
