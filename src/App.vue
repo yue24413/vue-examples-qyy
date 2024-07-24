@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import SidebarView from '@/views/SidebarView.vue'
 </script>
+
 <template>
   <SidebarView id="sidebar" />
   <!-- <RouterView> 是Vue Router库自带的一个组件，用于在Vue应用中动态展示路由匹配到的组件。 -->
   <RouterView id="router" />
 </template>
+
 <style>
 /* 最宽为全屏-y轴滚动条宽度 */
 body {
