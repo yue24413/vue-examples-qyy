@@ -50,15 +50,11 @@ watch(
   /**第一个参数应该是响应式引用或者是一个 getter 函数 */
   () => selectedCourses.value.length,
   (newLength, oldLength) => {
-    if (newLength !== oldLength) {
-      // 长度发生变化时,执行
-      /**数组的sort对自身排序有，与集合区分 */
-      selectedCourses.value.sort((a, b) => (a.semester || 0) - (b.semester || 0))
-      totalCredit.value = selectedCourses.value.reduce(
-        (acc, course) => acc + (course.point || 0),
-        0
-      )
-    }
+    console.log(newLength, oldLength)
+    // 长度发生变化时,执行
+    /**数组的sort对自身排序有，与集合区分 */
+    selectedCourses.value.sort((a, b) => (a.semester || 0) - (b.semester || 0))
+    totalCredit.value = selectedCourses.value.reduce((acc, course) => acc + (course.point || 0), 0)
   }
 )
 

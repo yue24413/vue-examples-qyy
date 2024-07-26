@@ -4,7 +4,7 @@ import compositionView from '@/views/composition/CompositionView.vue'
 <template>
   <div class="sidebar">
     <!-- 侧边栏做成手风车式 -->
-    <div class="manage">
+    <!-- <div class="manage">
       <h2>云技术管理</h2>
       <ul>
         <li><router-link to="/CloudServer">云服务器</router-link></li>
@@ -20,7 +20,7 @@ import compositionView from '@/views/composition/CompositionView.vue'
         <li><router-link to="/WebApplicationFirewall">Web应用防火墙</router-link></li>
         <li><router-link to="/CACertificateService">CA证书服务</router-link></li>
       </ul>
-    </div>
+    </div> -->
     <compositionView></compositionView>
   </div>
 </template>

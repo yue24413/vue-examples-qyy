@@ -1,3 +1,5 @@
+import type { Title } from '@/type'
+
 export function listCourses() {
   const courses = [
     {
@@ -38,4 +40,13 @@ export function listCourses() {
     }
   ]
   return courses
+}
+
+export function listTitles() {
+  const titles: Title[] = [
+    { id: 1, name: '讲师' },
+    { id: 2, name: '副教授' },
+    { id: 3, name: '教授' }
+  ]
+  return titles
 }

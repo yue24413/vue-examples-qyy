@@ -13,10 +13,13 @@
         <router-link to="/example02-2">experiment-02</router-link>
       </li>
       <li>
-        <router-link to="/example02-4">shallowRef()</router-link>
+        <router-link to="/example02-3">pptx07-Event&v-model</router-link>
       </li>
       <li>
-        <router-link to="/example02-3">reactive()</router-link>
+        <router-link to="/example02-4">homework-01</router-link>
+      </li>
+      <li>
+        <router-link to="/example02-5">homework-02</router-link>
       </li>
     </ul>
     <ul>

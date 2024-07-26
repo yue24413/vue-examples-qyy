@@ -24,6 +24,24 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/example02-4',
     component: () => import('@/views/example02/EXample02-4.vue')
+    // children: [
+    //   {
+    //     path: '/AddUser',
+    //     component: () => import('@/views/homework/UserChange/AddUserView.vue')
+    //   },
+    //   {
+    //     path: 'DeleteUser',
+    //     component: () => import('@/views/homework/UserChange/DeleteUserView.vue')
+    //   },
+    //   {
+    //     path: 'UpdateUser',
+    //     component: () => import('@/views/homework/UserChange/UpdateUserView.vue')
+    //   }
+    // ]
+  },
+  {
+    path: '/example02-5',
+    component: () => import('@/views/example02/Example02-5.vue')
   },
   {
     path: '/CloudServer',
