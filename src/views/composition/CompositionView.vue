@@ -21,6 +21,9 @@
       <li>
         <router-link to="/example02-5">homework-02</router-link>
       </li>
+      <li>
+        <router-link to="/example08-1">example08-1</router-link>
+      </li>
     </ul>
     <ul>
       <li></li>

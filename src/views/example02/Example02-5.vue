@@ -20,20 +20,16 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-interface shortDate {
+interface ShortDate {
   wDate: boolean
   eDate: boolean
 }
-/**用于检查是否全选 */
-const wDates = [1, 2, 3, 4, 5] /**用于检查是否全选 */
-const eDates = [6, 7]
-
-const dayCheckR = ref<shortDate>({ wDate: false, eDate: false })
-
+const dayCheckR = ref<ShortDate>({ wDate: false, eDate: false })
 const datesR = ref<number[]>([])
-
+const wDates = [1, 2, 3, 4, 5]
+const eDates = [6, 7]
 const changeShortDateF = () => {
-  const dates = []
+  let dates = []
   dayCheckR.value.wDate && dates.push(...wDates)
   dayCheckR.value.eDate && dates.push(...eDates)
   datesR.value = dates

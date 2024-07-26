@@ -44,6 +44,10 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/example02/Example02-5.vue')
   },
   {
+    path: '/example08-1',
+    component: () => import('@/views/example08/example08-1.vue')
+  },
+  {
     path: '/CloudServer',
     component: () => import('@/views/CloudTechnologyManagement/CloudServer.vue')
   },
