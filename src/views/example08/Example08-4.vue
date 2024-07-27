@@ -16,10 +16,15 @@
 
       <br />
     </p>
+    <hr />
+    <Ex42 />
+    <Ex41 />
   </div>
 </template>
 <script lang="ts" setup>
 import { useExample0804Store } from './Example08-4Store'
+import Ex41 from './Ex4-1.vue'
+import Ex42 from './Ex4-2.vue'
 
 const store = useExample0804Store()
 const changeCountF = () => {
