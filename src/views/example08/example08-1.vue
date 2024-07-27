@@ -19,7 +19,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useExample08Store } from './example08store'
+import { useExample08Store } from './Example08store'
 const store = useExample08Store()
 // 与pinia不同，store为普通对象。
 console.log(store)

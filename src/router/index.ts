@@ -77,7 +77,19 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/example08-1',
-    component: () => import('@/views/example08/example08-1.vue')
+    component: () => import('@/views/example08/Example08-1.vue')
+  },
+  {
+    path: '/example08-2',
+    component: () => import('@/views/example08/Example08-2.vue')
+  },
+  {
+    path: '/example08-3',
+    component: () => import('@/views/example08/Example08-3.vue')
+  },
+  {
+    path: '/example08-4',
+    component: () => import('@/views/example08/Example08-4.vue')
   },
   {
     path: '/CloudServer',

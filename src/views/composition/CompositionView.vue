@@ -39,19 +39,19 @@ $(function () {
         <router-link to="/example02-">pptx07-Event&v-model</router-link>
       </li>
     </ul>
-    <h3>example03</h3>
+    <h3>experiment03</h3>
     <ul>
       <li>
         <router-link to="/example03-1">example03-1</router-link>
       </li>
     </ul>
-    <h3>example04</h3>
+    <h3>experiment04</h3>
     <ul>
       <li>
         <router-link to="/example04-1">example04-1</router-link>
       </li>
     </ul>
-    <h3>example05</h3>
+    <h3>experiment05</h3>
     <ul>
       <li>
         <router-link to="/example05-1">example05-1</router-link>
@@ -76,6 +76,15 @@ $(function () {
     <ul>
       <li>
         <router-link to="/example08-1">example08-1</router-link>
+      </li>
+      <li>
+        <router-link to="/example08-2">example08-2</router-link>
+      </li>
+      <li>
+        <router-link to="/example08-3">example08-3</router-link>
+      </li>
+      <li>
+        <router-link to="/example08-4">example08-4</router-link>
       </li>
     </ul>
   </div>
