@@ -25,6 +25,7 @@ body {
 #sidebar {
   width: 300px;
   border: 1px solid red;
+  min-height: 600px;
   padding: 15px;
 }
 #router {

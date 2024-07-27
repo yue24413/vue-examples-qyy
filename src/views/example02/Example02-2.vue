@@ -1,85 +1,76 @@
 <template>
-  <div class="main">
-    <!-- 显示总学分，颜色根据是否达到条件而变化 -->
-    <div :style="{ color: totalCredit >= targetCredit ? 'green' : 'red' }">
-      总学分: {{ totalCredit }} / {{ targetCredit }}
+  <div>
+    <div>
+      <h1>新添加属性</h1>
+      <p>
+        基于Proxy代理对象能够感知新添加的属性。
+        <br />
+        <button type="button" @click="changeAddress">changeAddress</button>
+        <br />
+        {{ userRef.name }} / {{ userRef.insertTime }} / {{ userRef.address }}
+      </p>
     </div>
-    <!-- 显示所有课程 -->
-    <div class="allCourse">
-      <!-- 遍历数组用v-for...of -->
-      <label v-for="course of sortedAllCourses" :key="course.id">
-        <input type="checkbox" v-model="selectedCourses" :value="course" />
-        {{ course.name }} - ({{ course.point }}学分) - {{ course.semester }}
-      </label>
+    <hr />
+    <div>
+      <h1>计算属性返回函数</h1>
+      <p>
+        正常computed()函数绑定计算的结果。但，当需要基于获取的数据，动态绑定计算结果时。
+        <br />
+        正常渲染结果： {{ userRef.insertTime }}
+        <br />
+
+        计算属性返回函数：{{ formatDateFunc(userRef.insertTime || '') }}
+      </p>
     </div>
-    <br />
-    <br />
-    <!-- 已选课程 -->
-    <div class="selCourse">
-      <ul>
-        <li v-for="course of selectedCourses" :key="course.id">
-          {{ course.name }} - ({{ course.point }}学分) - {{ course.semester }}
-        </li>
-      </ul>
+    <hr />
+    <div>
+      <h1>响应式数据的深度</h1>
+      <p>
+        响应式对象下的属性对象下的数据改变时，依然是响应式的。
+        <br />
+        {{ userR2.courses }}
+        <br />
+        <button @click="changeUserR2">改变user下的courses下的值</button>
+      </p>
     </div>
-    <br />
-    {{ selectedCourses }}
-    <br />
-    <br />
-    <!-- {{ sortedAllCourses }}
-    <br />
-    <br />
-    {{ selectedSortedCourses }} -->
-    <br />
   </div>
 </template>
 <script lang="ts" setup>
-import { listCourses } from '@/datasource/DataSource'
-import type { Course } from '@/type'
+import type { User } from '@/type'
 import { computed, ref, watch } from 'vue'
-const targetCredit = 8.5
-const sortedAllCourses = [...listCourses()].sort((a, b) => a.semester - b.semester)
-/***************************************************** */
+// 初始化组件数据
+const user: User = {
+  name: 'BO',
+  insertTime: '2046-04-09T11:04:25'
+}
 
-const selectedCourses = ref<Course[]>([]) /**初始化空对象 显式声明类型 */
+const userRef = ref(user)
 
-const totalCredit = ref(0)
-
+const changeAddress = () => {
+  userRef.value.address = (Math.random() * 1000).toFixed(0)
+  userRef.value.name = 'SUN'
+}
+// 通过函数，可监听响应式数据中数据的改变
 watch(
-  /**箭头函数做参数,监听selectedCourses.length */
-  /**第一个参数应该是响应式引用或者是一个 getter 函数 */
-  () => selectedCourses.value.length,
-  (newLength, oldLength) => {
-    console.log(newLength, oldLength)
-    // 长度发生变化时,执行
-    /**数组的sort对自身排序有，与集合区分 */
-    selectedCourses.value.sort((a, b) => (a.semester || 0) - (b.semester || 0))
-    totalCredit.value = selectedCourses.value.reduce((acc, course) => acc + (course.point || 0), 0)
+  () => userRef.value.name,
+  () => {
+    console.log(userRef.value)
   }
 )
 
-// watch(selectedCourses, (newCou, oldCou) => {
-//   selectedCourses.value = [...newCou].sort((a, b) => (a.semester || 0) - (b.semester || 0))
-//   /**不可在 watch 回调中修改 selectedCourses直接进行排序，因为正在监听 selectedCourses 的变化 */
-//   totalCredit.value = newCou.reduce((acc, course) => acc + (course.point || 0), 0)
-// })
+// 计算属性，返回的不是值，而是函数
+const formatDateFunc = computed(() => (data: string) => data.replace('T', ' '))
 
-/*直接监听响应式引用：如果你需要监听整个响应式对象或数组的所有变化，可以直接传入这个引用。
-   使用 getter 函数：如果你只关心某个特定属性的变化，如长度或其他特定属性，应该使用 getter 函数。 */
+//
+const userR2 = ref<User>({
+  name: 'BO',
+  insertTime: '2046-04-09T11:04:25',
+  courses: [{ id: 12 }]
+})
+
+const changeUserR2 = () => {
+  userR2.value.courses &&
+    userR2.value.courses[0] &&
+    (userR2.value.courses[0].id = Math.floor(Math.random() * 10))
+}
 </script>
-
-<style scoped>
-.allCourse {
-  width: 300px;
-  display: inline-block;
-  border: 1px red solid;
-}
-.allCourse > label {
-  display: inline-block;
-  width: 100%;
-}
-.selCourse {
-  display: inline-block;
-  border: 1px red solid;
-}
-</style>

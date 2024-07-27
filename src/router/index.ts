@@ -15,11 +15,11 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/example02-2',
-    component: () => import('@/views/example02/EXample02-2.vue')
+    component: () => import('@/views/example02/Example02-2.vue')
   },
   {
     path: '/example02-3',
-    component: () => import('@/views/example02/EXample02-3.vue')
+    component: () => import('@/views/example02/Example02-3.vue')
   },
   {
     path: '/example02-4',
@@ -40,8 +40,40 @@ const routes: RouteRecordRaw[] = [
     // ]
   },
   {
-    path: '/example02-5',
-    component: () => import('@/views/example02/Example02-5.vue')
+    path: '/example02',
+    component: () => import('@/views/example02/EXample02.vue')
+  },
+  {
+    path: '/example02-',
+    component: () => import('@/views/example02/EXample02-.vue')
+  },
+  {
+    path: '/example03-1',
+    component: () => import('@/views/example03/Example03-1.vue')
+  },
+  {
+    path: '/example04-1',
+    component: () => import('@/views/example04/Example04-1.vue')
+  },
+  {
+    path: '/example05-1',
+    component: () => import('@/views/example05/Example05-1.vue')
+  },
+  {
+    path: '/example05-2',
+    component: () => import('@/views/example05/Example05-2.vue')
+  },
+  {
+    path: '/example05-3',
+    component: () => import('@/views/example05/Example05-3.vue')
+  },
+  {
+    path: '/homework01',
+    component: () => import('@/views/homeworks/homeworkView01.vue')
+  },
+  {
+    path: '/homework02',
+    component: () => import('@/views/example02/EXample02.vue')
   },
   {
     path: '/example08-1',
