@@ -87,6 +87,21 @@ $(function () {
         <router-link to="/example08-4">example08-4</router-link>
       </li>
     </ul>
+    <h3>experiment09</h3>
+    <ul>
+      <li>
+        <router-link to="/example09-1">example09-1</router-link>
+      </li>
+      <li>
+        <router-link to="/example09-2">example09-2</router-link>
+      </li>
+      <li>
+        <router-link to="/example09-3">example09-3</router-link>
+      </li>
+      <li>
+        <router-link to="/example09-4">example09-4</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 <style scoped>

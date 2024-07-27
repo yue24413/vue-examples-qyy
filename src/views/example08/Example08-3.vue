@@ -30,4 +30,14 @@ console.log(dCount)
 const premissionG = store.premissionG
 console.log(premissionG)
 const changePre = () => (store.userS.value.level = store.userS.value.level == 1 ? 2 : 1)
+/***
+store.countS 是一个 ref:
+store.countS 是一个 ref 对象，它包装了一个基本数据类型，并使这个数据类型成为响应式的。
+
+store.countS.value 是基本数据类型:
+当你访问 store.countS.value 时，你获取的是一个基本数据类型，而不是一个响应式引用。
+这个值不是响应式的，因此不能自动更新。
+dCount1 是普通变量:
+当你使用 const dCount1 = store.countS.value 时，你创建了一个普通变量 dCount1，它被初始化为 store.countS.value 的当前值。
+由于 dCount1 是一个普通变量，它不会自动更新，即使 store.countS.value 发生变化。 */
 </script>
