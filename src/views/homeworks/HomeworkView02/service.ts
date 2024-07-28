@@ -1,12 +1,13 @@
-import type { Department, Teacher } from './type'
-// 模拟异步获取全部部门
-export const listDapartmentService = () => {
+import type { Teacher, Department } from './type'
+
+export const listDepartmentsService = () => {
   return new Promise<Department[]>((resolve) => {
-    setTimeout(() => resolve(deps), 1000)
+    setTimeout(() => {
+      resolve(deps)
+    }, 1000)
   })
 }
-
-export const listTeacherService = (depId: string) => {
+export const listTeachersService = (depId: string) => {
   return new Promise<Teacher[]>((resolve) => {
     setTimeout(() => {
       const ts = teachers.filter((t) => t.depId == depId)
@@ -29,7 +30,6 @@ const deps: Department[] = [
     name: '软件工程'
   }
 ]
-
 const teachers: Teacher[] = [
   {
     id: '32',
@@ -77,11 +77,3 @@ const teachers: Teacher[] = [
     depId: '243'
   }
 ]
-/** 
-  new Promise<Department[]>: 创建一个新的 Promise 对象，并且指定了类型参数 <Department[]>，这意味着 Promise 解析的结果将会是一个 Department 类型的数组。
-*/
-
-/**
- (resolve) => {: 
-Promise 的构造函数接收一个执行器函数作为参数，这个执行器函数接收两个参数：resolve 和 reject。这里只传入了 resolve 函数，而 reject 函数被省略了。
- */
