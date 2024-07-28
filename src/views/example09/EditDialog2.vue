@@ -53,7 +53,8 @@ const emit = defineEmits<{
 // 声明执行函数，绑定组件中的操作事件
 // 声明2个事件，及传递的参数
 const submit = () =>
-  emit('emitSubmit', countR.value.name ?? '') /*参数1为事件名称，参数2为事件激活时传递的参数*/
+  emit('emitSubmit', courseR.value.name ?? '') /*参数1为事件名称，参数2为事件激活时传递的参数*/
+
 const close = () => emit('emitClose')
 
 /**

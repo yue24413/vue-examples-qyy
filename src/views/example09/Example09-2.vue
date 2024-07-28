@@ -51,11 +51,12 @@ const activeR = ref(false)
 // 对话框组件传回的数据
 const courseEditedNameR = ref('')
 // 监听回调函数
-// 当对话框组件指定事件被激活时，回调指定监听函数
+// 当对话框组件指定事件被激`活时，回调指定监听函数
 const onEmitSubmit = (name: string) => {
   activeR.value = false
   courseEditedNameR.value = name
 }
+console.log(activeR.value)
 /**************** */
 /**then() 是 Promise 的方法，用于处理 Promise 解析后的结果。
 在这里，then() 方法接收一个回调函数，该回调函数将在 Promise 成功解析时执行。 */
