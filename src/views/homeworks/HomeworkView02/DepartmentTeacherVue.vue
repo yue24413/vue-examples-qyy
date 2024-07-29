@@ -2,6 +2,7 @@
 import { ref, watch, type Ref } from 'vue'
 import { listDepartmentsService, listTeachersService } from './service'
 import type { Department, Teacher } from './type'
+import { symlinkSync } from 'fs'
 
 const teacherR = ref<Teacher>({})
 defineExpose<{ teacher: Ref<Teacher> }>({ teacher: teacherR })
@@ -10,12 +11,13 @@ defineExpose<{ teacher: Ref<Teacher> }>({ teacher: teacherR })
 // 因此暴露属性必须在异步阻塞前声明，并绑定响应式数据，以待后期填充
 const teachersR = ref<Teacher[]>([])
 const departmentR = ref<Department>()
+//await 表达式只能出现在 async 函数内部
 const departments = await listDepartmentsService()
 
 // 监听，当部门改变时，异步加载部门下所有教师
 watch(departmentR, async () => {
-  teacherR.value = {}
-  teachersR.value = []
+  // teacherR.value = {}
+  // teachersR.value = []
   departmentR.value?.id && (teachersR.value = await listTeachersService(departmentR.value.id))
 })
 // 也可不使用watch监听，而是通过select的值改变事件获取数据操作
