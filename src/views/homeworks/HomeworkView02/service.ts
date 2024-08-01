@@ -1,4 +1,4 @@
-import { rejects } from 'assert'
+
 import type { Teacher, Department } from './type'
 
 export const listDepartmentsService = () => {

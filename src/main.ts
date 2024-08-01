@@ -1,5 +1,6 @@
 import { createApp } from 'vue' /*从Vue库中导入了createApp */
 import App from './App.vue' /* ./ 当前位置*/ /*导入了名为App.vue的组件文件，这是Vue应用的根组件 */
+//import.meta.env.DEV && (await import('@/mock/index'))
 import router from './router'
 const app = createApp(App) /*初始化 */
 app.use(router) /**将前面导入的路由实例注入到Vue应用中 */
