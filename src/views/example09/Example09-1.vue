@@ -24,8 +24,11 @@ import { ref } from 'vue'
 // 初始时，store中为空数组。
 // 1s后service响应式更新store数据，数组也响应式更新
 const coursesR = ref<Course[]>([])
-coursesR.value = await listCoursesService()
-
+const showListCourses = async () => {
+  const cs = await listCoursesService()
+  coursesR.value = cs.value
+}
+showListCourses()
 // 组件中，直接响应式更新store数据
 const changeItemF = () =>
   coursesR.value.forEach((c, index) => index % 2 == 0 && (c.name = '响应式改变'))

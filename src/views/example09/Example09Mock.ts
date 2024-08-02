@@ -1,7 +1,7 @@
 import type { Course } from '@/type'
 
-export const listCoursesMock = async () => {
-  const courses = [
+export const listCoursesMock = () => {
+  const courses: Course[] = [
     {
       id: 100,
       name: '数据库原理',

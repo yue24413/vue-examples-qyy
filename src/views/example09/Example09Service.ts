@@ -6,7 +6,7 @@ import type { Course } from '@/type'
 import { listCoursesMock } from './Example09Mock'
 
 export const listCoursesService = async () => {
-  const coursesS = useExample09Store().coursesS
+  const coursesS = useCoursesStore().coursesSR
   if (coursesS.value.length == 0) {
     coursesS.value = await listCoursesMock()
   }
