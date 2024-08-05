@@ -115,6 +115,29 @@ const routes: RouteRecordRaw[] = [
     path: '/example09-5',
     component: () => import('@/views/example09/Example09-5.vue')
   },
+  /******************************* */
+  {
+    path: '/exp03',
+    component: () => import('@/views/exp03/HomeView.vue'),
+    children: [
+      {
+        path: 'location',
+        component: () => import('@/views/exp03/LocationView.vue')
+      },
+      {
+        path: 'shoplist',
+        component: () => import('@/views/exp03/ShopListView.vue')
+      },
+      {
+        path: 'shops/:sid',
+        component: () => import('@/views/exp03/ShopListView.vue')
+      },
+      {
+        path: 'orders',
+        component: () => import('@/views/exp03/OrderView.vue')
+      }
+    ]
+  },
   {
     path: '/CloudServer',
     component: () => import('@/views/CloudTechnologyManagement/CloudServer.vue')
