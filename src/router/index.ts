@@ -130,13 +130,33 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'shops/:sid',
-        component: () => import('@/views/exp03/ShopListView.vue')
+        component: () => import('@/views/exp03/ShopView.vue')
       },
       {
         path: 'orders',
         component: () => import('@/views/exp03/OrderView.vue')
       }
     ]
+  },
+  {
+    path: '/example10-1',
+    component: () => import('@/views/example10/Example10-1.vue')
+  },
+  {
+    path: '/example10-2',
+    component: () => import('@/views/example10/Example10-2.vue')
+  },
+  {
+    path: '/example11-1',
+    component: () => import('@/views/example11/Example11-1.vue')
+  },
+  {
+    path: '/example11-2',
+    component: () => import('@/views/example11/Example11-2.vue')
+  },
+  {
+    path: '/example11-3',
+    component: () => import('@/views/example11/Example11-3.vue')
   },
   {
     path: '/CloudServer',

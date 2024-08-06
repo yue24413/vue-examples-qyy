@@ -24,8 +24,10 @@ import { getOrdersService, getShopService } from './service'
 import { useRoute } from 'vue-router'
 const params = useRoute().params
 const shopR = ref<Shop>()
+console.log(params)
 
 getShopService(params.sid as string).then((sh) => {
+  /** :sid 动态段 路由配置*/
   shopR.value = sh
 })
 
@@ -50,6 +52,7 @@ const remove = (item: Item) => {
     }
   }
 }
+/**使用 splice 方法移除订单。首先找到 order 在数组中的索引 (orderS.value.indexOf(order))，然后使用 splice 方法从该索引开始移除 1 个元素。 */
 const orderQ = computed(() => (item: Item) => {
   const o = orderS.value.find((o) => o.item.id == item.id)
   return o?.quantity ?? 0
