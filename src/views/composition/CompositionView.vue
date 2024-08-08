@@ -80,6 +80,9 @@ $(function () {
       <li>
         <router-link to="/homework03">homework03</router-link>
       </li>
+      <li>
+        <router-link to="/homework04">homework04</router-link>
+      </li>
     </ul>
     <h3>experiment08</h3>
     <ul>
