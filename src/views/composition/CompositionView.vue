@@ -74,6 +74,12 @@ $(function () {
       <li>
         <router-link to="/homework02">homework02</router-link>
       </li>
+      <li>
+        <router-link to="/exp03">exp03</router-link>
+      </li>
+      <li>
+        <router-link to="/homework03">homework03</router-link>
+      </li>
     </ul>
     <h3>experiment08</h3>
     <ul>
@@ -106,12 +112,6 @@ $(function () {
       </li>
       <li>
         <router-link to="/example09-5">example09-5</router-link>
-      </li>
-    </ul>
-    <h3>exp03</h3>
-    <ul>
-      <li>
-        <router-link to="/exp03">exp03</router-link>
       </li>
     </ul>
     <h3>experiment10</h3>
