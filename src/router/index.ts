@@ -167,6 +167,30 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/example11/Example11-3.vue')
   },
   {
+    path: '/example12-1',
+    component: () => import('@/views/example12/Example12-1.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/example12/CourseAbout.vue')
+      },
+      {
+        path: 'course',
+        components: {
+          default: () => import('@/views/example12/CourseHome.vue'),
+          button: () => import('@/views/example12/AddCourseButton.vue')
+        }
+      },
+      {
+        path: 'homework',
+        components: {
+          default: () => import('@/views/example12/CourseHomework.vue'),
+          button: () => import('@/views/example12/AddHomeworkButton.vue')
+        }
+      }
+    ]
+  },
+  {
     path: '/CloudServer',
     component: () => import('@/views/CloudTechnologyManagement/CloudServer.vue')
   },

@@ -138,6 +138,12 @@ $(function () {
         <router-link to="/example11-3">example11-3</router-link>
       </li>
     </ul>
+    <h3>experiment12</h3>
+    <ul>
+      <li>
+        <router-link to="/example12-1">example12-1</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 <style scoped>
