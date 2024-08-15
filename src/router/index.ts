@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
-
+import * as consty from '@/datasource/Const'
+import { createAlertDialog } from '@/components/message'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -190,6 +191,38 @@ const routes: RouteRecordRaw[] = [
       }
     ]
   },
+  {
+    path: '/example13',
+    component: () => import('@/views/example13/GuardContainer.vue'),
+    children: [
+      {
+        name: 'login-g',
+        path: 'login',
+        component: () => import('@/views/example13/GuardLogin.vue')
+      },
+      {
+        path: 'user',
+        component: () => import('@/views/example13/GuardUser.vue'),
+        meta: {
+          role: consty.USER
+        }
+      },
+      {
+        path: 'admin',
+        component: () => import('@/views/example13/GuardAdmin.vue'),
+        meta: {
+          role: consty.ADMIN
+        }
+      },
+      {
+        name: 'nomatch',
+        path: ':pathMatch(.*)*', // 如果是全局匹配，应加上`/`，/:pathMatch(.*)*
+        redirect: { name: 'login-g' }
+        /**  (.*)* 是一个正则表达式，其中 .* 表示匹配任意字符序列，* 表示前面的模式可以出现零次或多次。 */
+      }
+    ]
+  },
+
   {
     path: '/CloudServer',
     component: () => import('@/views/CloudTechnologyManagement/CloudServer.vue')
