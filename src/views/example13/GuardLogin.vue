@@ -37,7 +37,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { loginGuardService } from './Example13Service'
+
 const userForm = ref({ number: '', password: '' })
+
 const login = async () => {
   const user = {
     number: userForm.value.number,

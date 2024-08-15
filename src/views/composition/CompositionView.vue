@@ -147,7 +147,7 @@ $(function () {
     <h3>experiment13</h3>
     <ul>
       <li>
-        <router-link to="/example13">example13</router-link>
+        <router-link to="/example13/login">example13</router-link>
       </li>
     </ul>
   </div>

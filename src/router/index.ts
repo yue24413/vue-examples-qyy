@@ -218,7 +218,6 @@ const routes: RouteRecordRaw[] = [
         name: 'nomatch',
         path: ':pathMatch(.*)*', // 如果是全局匹配，应加上`/`，/:pathMatch(.*)*
         redirect: { name: 'login-g' }
-        /**  (.*)* 是一个正则表达式，其中 .* 表示匹配任意字符序列，* 表示前面的模式可以出现零次或多次。 */
       }
     ]
   },

@@ -11,7 +11,7 @@ export const loginGuardService = async (user: { number: string; password: string
   const role = resp.response.value?.headers.get('role')
   role && sessionStorage.setItem('role', role)
   const userS = useExample13Store().userS
-  resp.data.value?.data.user && (userS.value = resp.data.value.data.user)
+  resp.data.value?.data.user && (userS.value = resp.data.value?.data.user)
   let path = '/example13/login'
   switch (role) {
     case consty.USER:
