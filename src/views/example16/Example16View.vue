@@ -30,6 +30,7 @@ const store = useExample16Store()
         <br />
         <MyCardVue>
           <template #default="props">Header, 为默认插槽传值。{{ props.slotProps }}</template>
+
           <template #content="cprops">
             Content, 为指定插槽传值。
             <br />
@@ -47,8 +48,8 @@ const store = useExample16Store()
         <br />
         <button @click="store.changeRoleA">切换角色</button>
         <br />
-        <MyButtonVue :role="USER">`USER`角色可见</MyButtonVue>
-        <MyButtonVue :role="ADMIN">`ADMIN`角色可见</MyButtonVue>
+        <MyAuthVue :role="USER">`USER`角色可见</MyAuthVue>
+        <MyAuthVue :role="ADMIN">`ADMIN`角色可见</MyAuthVue>
       </p>
     </div>
   </div>
