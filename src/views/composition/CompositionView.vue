@@ -150,6 +150,27 @@ $(function () {
         <router-link to="/example13/login">example13</router-link>
       </li>
     </ul>
+    <h3>experiment15</h3>
+    <ul>
+      <li>
+        <router-link to="/example15-1">example15-1</router-link>
+      </li>
+      <li>
+        <router-link to="/example15-2">example15-2</router-link>
+      </li>
+    </ul>
+    <h3>experiment16</h3>
+    <ul>
+      <li>
+        <router-link to="/example16">example16</router-link>
+      </li>
+    </ul>
+    <h3>experiment17</h3>
+    <ul>
+      <li>
+        <router-link to="/example17">example17</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 <style scoped>

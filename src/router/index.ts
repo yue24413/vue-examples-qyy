@@ -221,7 +221,22 @@ const routes: RouteRecordRaw[] = [
       }
     ]
   },
-
+  {
+    path: '/example15-1',
+    component: () => import('@/views/example15/Example15-1.vue')
+  },
+  {
+    path: '/example15-2',
+    component: () => import('@/views/example15/Example15-2.vue')
+  },
+  {
+    path: '/example16',
+    component: () => import('@/views/example16/Example16View.vue')
+  },
+  {
+    path: '/example17',
+    component: () => import('@/views/example17/Example17View.vue')
+  },
   {
     path: '/CloudServer',
     component: () => import('@/views/CloudTechnologyManagement/CloudServer.vue')
