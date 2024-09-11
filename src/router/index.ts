@@ -274,4 +274,14 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+router.beforeEach((to, from) => {
+  if (!to.meta.role) {
+    return true
+  }
+  if (to.meta.role != sessionStorage.getItem('role')) {
+    createAlertDialog('无权限')
+    return { name: 'login-g' }
+  }
+  return true
+})
 export default router

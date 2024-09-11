@@ -45,9 +45,9 @@ const login = async () => {
     number: userForm.value.number,
     password: userForm.value.password
   }
-  await loginGuardService(user)
   userForm.value.number = ''
   userForm.value.password = ''
+  await loginGuardService(user)
 }
 const clearSessionStorageF = () => {
   sessionStorage.clear()

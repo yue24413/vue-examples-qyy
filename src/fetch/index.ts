@@ -42,7 +42,7 @@ export const useGet = async <T>(url: string) => {
   await resp.execute(true)
   return resp
 }
-
+//`immediate: false` 表示不立即执行请求
 export const usePost = async <T>(url: string, data: unknown) => {
   const resp = useFetch(url, { immediate: false }).post(data).json<ResultVO<T>>()
   await resp.execute(true)
@@ -51,6 +51,7 @@ export const usePost = async <T>(url: string, data: unknown) => {
 
 export const usePut = async <T>(url: string) => {
   const resp = useFetch(url, { immediate: false }).put().json<ResultVO<T>>()
+
   await resp.execute(true)
   return resp
 }
