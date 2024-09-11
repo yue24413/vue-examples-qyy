@@ -2,7 +2,7 @@ import type { ResultVO } from '@/type'
 import { createFetch } from '@vueuse/core'
 
 const useFetch = createFetch({
-  baseUrl: '/api/',
+  baseUrl: '/api/', // API 接口
   options: {
     beforeFetch: ({ options }) => {
       const token = sessionStorage.getItem('token')

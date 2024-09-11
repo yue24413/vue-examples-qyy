@@ -215,6 +215,7 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
+        //未匹配路由 (nomatch).处理没有明确匹配到其他子路由的情况
         name: 'nomatch',
         path: ':pathMatch(.*)*', // 如果是全局匹配，应加上`/`，/:pathMatch(.*)*
         redirect: { name: 'login-g' }
