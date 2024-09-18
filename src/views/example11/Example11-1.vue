@@ -26,7 +26,7 @@ import { useGet } from '@/fetch'
 
 const userR = ref<User>({})
 // 发出异步请求，获取结果。没有置于state
-useGet<{ user: User }>('users/12').then((resp) => {
+useGet<{ user: User }>('users/2').then((resp) => {
   resp.data.value?.data.user && (userR.value = resp.data.value?.data.user)
 })
 

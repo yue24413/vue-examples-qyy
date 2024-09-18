@@ -6,6 +6,8 @@ import { useRoute } from 'vue-router'
 
 //.query 是路由对象的一个属性，它包含 URL 查询字符串中的参数。查询字符串是在 URL 中 ? 符号后面的部分
 const url = useRoute().query.url as string
+console.log(url)
+
 const reposR = ref<GithubRepos[]>([])
 const reverse = ref(false)
 

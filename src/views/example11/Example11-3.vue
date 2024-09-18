@@ -20,6 +20,7 @@
       <br />
       <button @click="passParams">passParams</button>
     </div>
+    {{ address.detail }} / {{ address.postcode }}
     <p>mock中的search方法。控制台打印接收到的参数，返回查询结果id。</p>
     <ul>
       <li v-for="(a, index) of addresses" :key="index">{{ a.id }}</li>
@@ -29,6 +30,7 @@
 <script lang="ts" setup>
 import { useFetch } from '@vueuse/core'
 import { ref } from 'vue'
+import { useGet, usePost } from '@/fetch'
 interface Address {
   id?: number
   detail?: string
@@ -36,12 +38,18 @@ interface Address {
 }
 const address = ref<Address>({})
 const addresses = ref<Address[]>([])
-const passParams = () => {
-  // 对象转json字符串
+const passParams = async () => {
+  //对象转json字符串
   const s = JSON.stringify(address.value)
+  console.log(s) /** {"detail":"12","postcode":"010"} */
   useFetch(`search?address=${s}`)
     .get()
     .json()
     .then((resp) => (addresses.value = resp.data.value?.data))
+
+  /******************* */
+  // const { data } = await useGet<[]>(`search?address=${s}`)
+  // console.log(data.value?.data)
+  // addresses.value = data.value?.data ?? []
 }
 </script>
