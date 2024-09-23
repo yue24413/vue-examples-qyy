@@ -42,13 +42,14 @@ const passParams = async () => {
   //对象转json字符串
   const s = JSON.stringify(address.value)
   console.log(s) /** {"detail":"12","postcode":"010"} */
-  useFetch(`search?address=${s}`)
-    .get()
-    .json()
-    .then((resp) => (addresses.value = resp.data.value?.data))
-
+  // useFetch(`search?address=${s}`)
+  //   .get()
+  //   .json()
+  //   .then((resp) => (addresses.value = resp.data.value?.data))
   /******************* */
-  // const { data } = await useGet<[]>(`search?address=${s}`)
+  await useGet<[]>(`api/search?address=${s}`).then(
+    (resp) => (addresses.value = resp.data.value?.data ?? [])
+  )
   // console.log(data.value?.data)
   // addresses.value = data.value?.data ?? []
 }
