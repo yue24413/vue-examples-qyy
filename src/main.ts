@@ -5,7 +5,11 @@ import App from './App.vue' /* ./ 当前位置*/ /*导入了名为App.vue的组�
 import router from './router'
 import('@/mock/index')
 
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 const app = createApp(App) /*初始化 */
+app.use(ElementPlus)
 app.use(router) /**将前面导入的路由实例注入到Vue应用中 */
 app.mount('#app') /**挂载之后，Vue应用就开始控制这个DOM元素， */
 
